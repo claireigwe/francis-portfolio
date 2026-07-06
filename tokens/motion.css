@@ -1,0 +1,409 @@
+:root {
+    /* ========================================
+     MOTION DURATIONS
+
+     Two primary motion speeds:
+
+     Interface motion is quick and quiet.
+     Editorial motion is slower and more visible.
+
+     Do not use one duration for everything.
+     ======================================== */
+
+    --duration-instant: 100ms;
+
+    --duration-fast: 180ms;
+    --duration-base: 280ms;
+    --duration-slow: 480ms;
+
+    --duration-editorial: 700ms;
+    --duration-editorial-slow: 1000ms;
+
+
+    /* ========================================
+     EASING CURVES
+     ======================================== */
+
+    /* General interface feedback */
+    --ease-interface:
+        cubic-bezier(0.2, 0.8, 0.2, 1);
+
+    /* Content entering the composition */
+    --ease-reveal:
+        cubic-bezier(0.16, 1, 0.3, 1);
+
+    /* Images and larger editorial moments */
+    --ease-editorial:
+        cubic-bezier(0.22, 1, 0.36, 1);
+
+    /* Elements leaving the composition */
+    --ease-exit:
+        cubic-bezier(0.4, 0, 1, 1);
+
+
+    /* ========================================
+     SEMANTIC MOTION TOKENS
+     ======================================== */
+
+    --motion-interface-duration: var(--duration-fast);
+    --motion-interface-ease: var(--ease-interface);
+
+    --motion-reveal-duration: var(--duration-slow);
+    --motion-reveal-ease: var(--ease-reveal);
+
+    --motion-editorial-duration: var(--duration-editorial);
+    --motion-editorial-ease: var(--ease-editorial);
+
+    --motion-page-duration: var(--duration-base);
+    --motion-page-ease: var(--ease-interface);
+
+
+    /* ========================================
+     REVEAL DISTANCES
+
+     Keep movement restrained.
+
+     Larger distances are reserved for major
+     editorial moments, not ordinary content.
+     ======================================== */
+
+    --reveal-distance-sm: 0.5rem;
+    --reveal-distance-md: 1.5rem;
+    --reveal-distance-lg: 3rem;
+
+
+    /* ========================================
+     STAGGER TIMING
+
+     Use only when a sequence genuinely benefits
+     from being read as separate beats.
+     ======================================== */
+
+    --stagger-fast: 60ms;
+    --stagger-base: 100ms;
+    --stagger-slow: 160ms;
+
+
+    /* ========================================
+     IMAGE MOTION
+     ======================================== */
+
+    --image-scale-rest: 1;
+    --image-scale-hover: 1.025;
+
+    --image-drift-distance: 1.5%;
+
+    --image-reveal-duration:
+        var(--duration-editorial);
+
+    --image-reveal-ease:
+        var(--ease-editorial);
+
+
+    /* ========================================
+     INTERACTION MOVEMENT
+     ======================================== */
+
+    --link-shift: 0.2em;
+    --arrow-shift: 0.3em;
+
+
+    /* ========================================
+     EDITORIAL MARK MOTION
+     ======================================== */
+
+    --mark-duration: 420ms;
+    --mark-ease: var(--ease-reveal);
+}
+
+
+/* ========================================
+   BASE INTERACTION TRANSITIONS
+
+   Apply only to elements that actually change.
+   Do not use transition: all.
+   ======================================== */
+
+.motion-color {
+    transition:
+        color var(--motion-interface-duration) var(--motion-interface-ease),
+        background-color var(--motion-interface-duration) var(--motion-interface-ease),
+        border-color var(--motion-interface-duration) var(--motion-interface-ease);
+}
+
+.motion-transform {
+    transition:
+        transform var(--motion-interface-duration) var(--motion-interface-ease);
+}
+
+.motion-opacity {
+    transition:
+        opacity var(--motion-interface-duration) var(--motion-interface-ease);
+}
+
+
+/* ========================================
+   CONTENT REVEAL
+
+   Intended for major content moments.
+
+   Do not apply to every paragraph or section.
+   ======================================== */
+
+.reveal {
+    opacity: 0;
+    transform:
+        translateY(var(--reveal-distance-md));
+
+    transition:
+        opacity var(--motion-reveal-duration) var(--motion-reveal-ease),
+        transform var(--motion-reveal-duration) var(--motion-reveal-ease);
+}
+
+.reveal[data-visible="true"] {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+
+/* ========================================
+   SUBTLE REVEAL
+
+   For supporting content that should arrive
+   with less visual emphasis.
+   ======================================== */
+
+.reveal-subtle {
+    opacity: 0;
+    transform:
+        translateY(var(--reveal-distance-sm));
+
+    transition:
+        opacity var(--duration-base) var(--ease-reveal),
+        transform var(--duration-base) var(--ease-reveal);
+}
+
+.reveal-subtle[data-visible="true"] {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+
+/* ========================================
+   EDITORIAL REVEAL
+
+   Reserved for large statements, major
+   quotations, and significant page moments.
+   ======================================== */
+
+.reveal-editorial {
+    opacity: 0;
+    transform:
+        translateY(var(--reveal-distance-lg));
+
+    transition:
+        opacity var(--motion-editorial-duration) var(--motion-editorial-ease),
+        transform var(--motion-editorial-duration) var(--motion-editorial-ease);
+}
+
+.reveal-editorial[data-visible="true"] {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+
+/* ========================================
+   IMAGE REVEAL
+
+   The clipping wrapper reveals the image.
+   JavaScript may toggle data-visible.
+   ======================================== */
+
+.image-reveal {
+    overflow: hidden;
+}
+
+.image-reveal>img,
+.image-reveal>picture {
+    transform: scale(1.04);
+    clip-path: inset(0 0 100% 0);
+
+    transition:
+        clip-path var(--image-reveal-duration) var(--image-reveal-ease),
+        transform var(--duration-editorial-slow) var(--image-reveal-ease);
+}
+
+.image-reveal[data-visible="true"]>img,
+.image-reveal[data-visible="true"]>picture {
+    transform: scale(var(--image-scale-rest));
+    clip-path: inset(0 0 0 0);
+}
+
+
+/* ========================================
+   PROJECT PREVIEW IMAGE
+
+   Use only where hover interaction adds value.
+   Essential information must remain visible
+   without hover.
+   ======================================== */
+
+.project-preview-media {
+    overflow: hidden;
+}
+
+.project-preview-media img {
+    transform: scale(var(--image-scale-rest));
+
+    transition:
+        transform var(--duration-slow) var(--ease-editorial);
+}
+
+@media (hover: hover) and (pointer: fine) {
+    .project-preview:hover .project-preview-media img {
+        transform: scale(var(--image-scale-hover));
+    }
+}
+
+
+/* ========================================
+   DIRECTIONAL ARROW
+
+   For links and project navigation.
+   ======================================== */
+
+.motion-arrow {
+    display: inline-block;
+
+    transition:
+        transform var(--motion-interface-duration) var(--motion-interface-ease);
+}
+
+@media (hover: hover) and (pointer: fine) {
+
+    a:hover .motion-arrow,
+    button:hover .motion-arrow {
+        transform:
+            translateX(var(--arrow-shift));
+    }
+}
+
+
+/* ========================================
+   EDITORIAL UNDERLINE
+
+   A controlled mark that draws into place.
+
+   Use sparingly.
+   ======================================== */
+
+.editorial-underline {
+    position: relative;
+    display: inline-block;
+}
+
+.editorial-underline::after {
+    position: absolute;
+    right: 0;
+    bottom: -0.08em;
+    left: 0;
+
+    height: 0.08em;
+
+    background: var(--color-accent);
+
+    content: "";
+
+    transform: scaleX(0);
+    transform-origin: left;
+
+    transition:
+        transform var(--mark-duration) var(--mark-ease);
+}
+
+.editorial-underline[data-visible="true"]::after {
+    transform: scaleX(1);
+}
+
+
+/* ========================================
+   PAGE TRANSITION
+
+   Keep page transitions subtle and quick.
+   ======================================== */
+
+.page-transition {
+    opacity: 1;
+
+    transition:
+        opacity var(--motion-page-duration) var(--motion-page-ease);
+}
+
+.page-transition[data-transitioning="true"] {
+    opacity: 0;
+}
+
+
+/* ========================================
+   REDUCED MOTION
+
+   Preserve all content and functionality.
+
+   Remove non-essential movement rather than
+   replacing it with another effect.
+   ======================================== */
+
+@media (prefers-reduced-motion: reduce) {
+    :root {
+        --duration-instant: 0ms;
+        --duration-fast: 0ms;
+        --duration-base: 0ms;
+        --duration-slow: 0ms;
+        --duration-editorial: 0ms;
+        --duration-editorial-slow: 0ms;
+
+        --motion-interface-duration: 0ms;
+        --motion-reveal-duration: 0ms;
+        --motion-editorial-duration: 0ms;
+        --motion-page-duration: 0ms;
+
+        --image-reveal-duration: 0ms;
+        --mark-duration: 0ms;
+
+        --reveal-distance-sm: 0;
+        --reveal-distance-md: 0;
+        --reveal-distance-lg: 0;
+
+        --image-drift-distance: 0;
+        --image-scale-hover: 1;
+
+        --link-shift: 0;
+        --arrow-shift: 0;
+    }
+
+    *,
+    *::before,
+    *::after {
+        scroll-behavior: auto !important;
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+
+    .reveal,
+    .reveal-subtle,
+    .reveal-editorial {
+        opacity: 1;
+        transform: none;
+    }
+
+    .image-reveal>img,
+    .image-reveal>picture {
+        transform: none;
+        clip-path: none;
+    }
+
+    .editorial-underline::after {
+        transform: scaleX(1);
+    }
+}

@@ -1,0 +1,363 @@
+/* ========================================
+   FONT IMPORTS
+
+   Fonts should be loaded in the application
+   using next/font or the chosen framework's
+   font-loading strategy.
+
+   Expected CSS variables:
+
+   --font-instrument-serif
+   --font-geist
+
+   Do not import fonts from a remote stylesheet
+   inside this token file.
+   ======================================== */
+
+
+:root {
+    /* ========================================
+     FONT FAMILIES
+     ======================================== */
+
+    --font-display:
+        var(--font-instrument-serif),
+        "Times New Roman",
+        serif;
+
+    --font-sans:
+        var(--font-geist),
+        Arial,
+        sans-serif;
+
+
+    /* ========================================
+     FONT WEIGHTS
+     ======================================== */
+
+    --font-weight-regular: 400;
+    --font-weight-medium: 500;
+    --font-weight-semibold: 600;
+
+
+    /* ========================================
+     FLUID TYPE SCALE
+
+     Scale follows meaning, not hierarchy alone.
+     These tokens provide ranges, not rigid
+     heading assignments.
+     ======================================== */
+
+    --text-xs: clamp(0.6875rem, 0.66rem + 0.12vw, 0.75rem);
+    --text-sm: clamp(0.8125rem, 0.78rem + 0.14vw, 0.875rem);
+    --text-base: clamp(1rem, 0.96rem + 0.18vw, 1.125rem);
+    --text-lg: clamp(1.125rem, 1.04rem + 0.34vw, 1.375rem);
+    --text-xl: clamp(1.375rem, 1.2rem + 0.7vw, 1.875rem);
+
+    --text-2xl: clamp(1.75rem, 1.42rem + 1.3vw, 2.75rem);
+    --text-3xl: clamp(2.25rem, 1.72rem + 2.1vw, 4rem);
+    --text-4xl: clamp(3rem, 2rem + 4vw, 6.5rem);
+    --text-5xl: clamp(4rem, 2.3rem + 6.8vw, 9.5rem);
+    --text-6xl: clamp(5rem, 2.5rem + 10vw, 14rem);
+
+
+    /* ========================================
+     SEMANTIC TYPE SIZES
+     ======================================== */
+
+    --text-label: var(--text-xs);
+    --text-meta: var(--text-sm);
+    --text-body: var(--text-base);
+    --text-body-large: var(--text-lg);
+
+    --text-section-heading: var(--text-2xl);
+    --text-page-heading: var(--text-4xl);
+    --text-display: var(--text-5xl);
+    --text-display-oversized: var(--text-6xl);
+
+
+    /* ========================================
+     LINE HEIGHTS
+     ======================================== */
+
+    --leading-none: 0.88;
+    --leading-tight: 0.98;
+    --leading-snug: 1.12;
+    --leading-normal: 1.5;
+    --leading-relaxed: 1.7;
+    --leading-reading: 1.75;
+
+
+    /* ========================================
+     LETTER SPACING
+     ======================================== */
+
+    --tracking-tightest: -0.055em;
+    --tracking-tighter: -0.04em;
+    --tracking-tight: -0.025em;
+    --tracking-normal: 0;
+    --tracking-wide: 0.06em;
+    --tracking-wider: 0.12em;
+    --tracking-widest: 0.18em;
+
+
+    /* ========================================
+     READING WIDTHS
+     ======================================== */
+
+    --measure-narrow: 28ch;
+    --measure-reading: 62ch;
+    --measure-wide: 74ch;
+}
+
+
+/* ========================================
+   TYPOGRAPHIC ROLES
+
+   These are reusable editorial roles.
+   They are not mandatory HTML heading styles.
+   ======================================== */
+
+.type-display {
+    max-width: 14ch;
+
+    font-family: var(--font-display);
+    font-size: var(--text-display);
+    font-weight: var(--font-weight-regular);
+    line-height: var(--leading-none);
+    letter-spacing: var(--tracking-tighter);
+}
+
+.type-display-oversized {
+    font-family: var(--font-display);
+    font-size: var(--text-display-oversized);
+    font-weight: var(--font-weight-regular);
+    line-height: var(--leading-none);
+    letter-spacing: var(--tracking-tightest);
+}
+
+.type-page-heading {
+    max-width: 16ch;
+
+    font-family: var(--font-display);
+    font-size: var(--text-page-heading);
+    font-weight: var(--font-weight-regular);
+    line-height: var(--leading-tight);
+    letter-spacing: var(--tracking-tighter);
+}
+
+.type-section-heading {
+    max-width: 22ch;
+
+    font-family: var(--font-display);
+    font-size: var(--text-section-heading);
+    font-weight: var(--font-weight-regular);
+    line-height: var(--leading-snug);
+    letter-spacing: var(--tracking-tight);
+}
+
+.type-body {
+    max-width: var(--measure-reading);
+
+    font-family: var(--font-sans);
+    font-size: var(--text-body);
+    font-weight: var(--font-weight-regular);
+    line-height: var(--leading-reading);
+    letter-spacing: var(--tracking-normal);
+}
+
+.type-body-large {
+    max-width: var(--measure-wide);
+
+    font-family: var(--font-sans);
+    font-size: var(--text-body-large);
+    font-weight: var(--font-weight-regular);
+    line-height: var(--leading-relaxed);
+    letter-spacing: var(--tracking-normal);
+}
+
+.type-label {
+    font-family: var(--font-sans);
+    font-size: var(--text-label);
+    font-weight: var(--font-weight-medium);
+    line-height: var(--leading-normal);
+    letter-spacing: var(--tracking-widest);
+    text-transform: uppercase;
+}
+
+.type-meta {
+    font-family: var(--font-sans);
+    font-size: var(--text-meta);
+    font-weight: var(--font-weight-regular);
+    line-height: var(--leading-normal);
+    letter-spacing: var(--tracking-wide);
+}
+
+
+/* ========================================
+   EDITORIAL TEXT ROLES
+   ======================================== */
+
+.type-quote {
+    max-width: 20ch;
+
+    font-family: var(--font-display);
+    font-size: var(--text-3xl);
+    font-weight: var(--font-weight-regular);
+    line-height: var(--leading-snug);
+    letter-spacing: var(--tracking-tight);
+}
+
+.type-pull-quote {
+    max-width: 16ch;
+
+    font-family: var(--font-display);
+    font-size: var(--text-4xl);
+    font-weight: var(--font-weight-regular);
+    line-height: var(--leading-tight);
+    letter-spacing: var(--tracking-tighter);
+}
+
+.type-annotation {
+    max-width: var(--measure-narrow);
+
+    font-family: var(--font-sans);
+    font-size: var(--text-sm);
+    font-weight: var(--font-weight-medium);
+    line-height: var(--leading-normal);
+    letter-spacing: var(--tracking-normal);
+}
+
+.type-aside {
+    max-width: var(--measure-narrow);
+
+    font-family: var(--font-display);
+    font-size: var(--text-lg);
+    font-style: italic;
+    font-weight: var(--font-weight-regular);
+    line-height: var(--leading-snug);
+}
+
+
+/* ========================================
+   LONG-FORM READING
+   ======================================== */
+
+.prose {
+    width: 100%;
+    max-width: var(--measure-reading);
+
+    font-family: var(--font-sans);
+    font-size: var(--text-body);
+    font-weight: var(--font-weight-regular);
+    line-height: var(--leading-reading);
+}
+
+.prose p {
+    margin-block: 0;
+}
+
+.prose p+p {
+    margin-top: 1.5em;
+}
+
+.prose h2 {
+    max-width: 20ch;
+    margin-top: 2.5em;
+    margin-bottom: 0.75em;
+
+    font-family: var(--font-display);
+    font-size: var(--text-2xl);
+    font-weight: var(--font-weight-regular);
+    line-height: var(--leading-snug);
+    letter-spacing: var(--tracking-tight);
+}
+
+.prose h3 {
+    max-width: 28ch;
+    margin-top: 2em;
+    margin-bottom: 0.625em;
+
+    font-family: var(--font-sans);
+    font-size: var(--text-xl);
+    font-weight: var(--font-weight-medium);
+    line-height: var(--leading-snug);
+    letter-spacing: var(--tracking-tight);
+}
+
+.prose blockquote {
+    max-width: 22ch;
+    margin-block: 2em;
+    margin-inline: 0;
+
+    font-family: var(--font-display);
+    font-size: var(--text-3xl);
+    font-weight: var(--font-weight-regular);
+    line-height: var(--leading-snug);
+    letter-spacing: var(--tracking-tight);
+}
+
+.prose ul,
+.prose ol {
+    padding-left: 1.25em;
+}
+
+.prose li+li {
+    margin-top: 0.625em;
+}
+
+
+/* ========================================
+   DEFAULT DOCUMENT TYPOGRAPHY
+
+   Keep defaults quiet.
+   Expressive typography should be intentional.
+   ======================================== */
+
+body {
+    font-family: var(--font-sans);
+    font-size: var(--text-body);
+    font-weight: var(--font-weight-regular);
+    line-height: var(--leading-normal);
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+    margin: 0;
+}
+
+button,
+input,
+textarea,
+select {
+    font: inherit;
+}
+
+
+/* ========================================
+   RESPONSIVE SAFEGUARDS
+   ======================================== */
+
+@media (max-width: 47.99rem) {
+    :root {
+        --measure-reading: 100%;
+        --measure-wide: 100%;
+    }
+
+    .type-display,
+    .type-display-oversized,
+    .type-page-heading,
+    .type-section-heading,
+    .type-quote,
+    .type-pull-quote {
+        max-width: 100%;
+    }
+}

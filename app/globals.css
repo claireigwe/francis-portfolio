@@ -1,0 +1,78 @@
+@import "../tokens/colors.css";
+@import "../tokens/typography.css";
+@import "../tokens/spacing.css";
+@import "../tokens/motion.css";
+
+h1, h2, h3, h4, h5, h6 { font-weight: normal; }
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background-color: var(--color-background);
+  color: var(--color-text-primary);
+  position: relative;
+}
+
+body::after {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 9999;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+  opacity: 0.035;
+  mix-blend-mode: overlay;
+}
+
+img, picture, video, canvas, svg {
+  display: block;
+  max-width: 100%;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-focus);
+  outline-offset: 4px;
+}
+
+.skip-link {
+  position: absolute;
+  top: -40px;
+  left: 0;
+  padding: 8px;
+  background: var(--color-surface);
+  color: var(--color-text-primary);
+  z-index: 100;
+}
+
+.skip-link:focus {
+  top: 0;
+}
+
+/* ========================================
+   PAGE FRAME
+   ======================================== */
+
+.page-frame {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.main-content-area {
+  flex: 1;
+  /* Add safe top spacing using tokens (the nav is sticky so it doesn't overlap visually, but we want rhythm) */
+  padding-top: var(--space-6);
+  /* The global gutters are handled by container utility inside the sections/pages, 
+     but we can apply some baseline padding if needed. We will let sections handle it. */
+}
+

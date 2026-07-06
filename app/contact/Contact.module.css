@@ -1,0 +1,166 @@
+.contactPage {
+  padding-bottom: var(--space-9);
+}
+
+.contactHeader {
+  padding: var(--space-9) 0 var(--space-8);
+  border-bottom: 1px solid var(--color-charcoal);
+  margin-bottom: var(--space-9);
+}
+
+.contactEyebrow {
+  color: var(--color-ash);
+  margin-bottom: var(--space-5);
+  font-family: var(--font-geist);
+  font-size: var(--text-sm);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.contactTitle {
+  font-family: var(--font-instrument-serif);
+  font-size: var(--text-5xl);
+  line-height: 1.1;
+  color: var(--color-paper);
+  margin-bottom: var(--space-7);
+  max-width: 900px;
+}
+
+.contactIntro {
+  font-family: var(--font-geist);
+  font-size: var(--text-lg);
+  color: var(--color-ash);
+  line-height: var(--line-height-relaxed);
+  max-width: var(--width-content);
+}
+
+.contactIntro p {
+  margin-bottom: var(--space-4);
+}
+
+.contactGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-9);
+}
+
+@media (min-width: 768px) {
+  .contactGrid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.contactInvitation h2 {
+  font-family: var(--font-instrument-serif);
+  font-size: var(--text-4xl);
+  color: var(--color-paper);
+  margin-bottom: var(--space-6);
+  line-height: 1.2;
+}
+
+.contactBody {
+  font-family: var(--font-geist);
+  font-size: var(--text-lg);
+  color: var(--color-ash);
+  line-height: var(--line-height-relaxed);
+  max-width: var(--width-content);
+}
+
+.contactBody p {
+  margin-bottom: var(--space-4);
+}
+
+.contactBody ul {
+  list-style-type: none;
+  margin-bottom: var(--space-4);
+}
+
+.contactBody li {
+  margin-bottom: var(--space-3);
+  position: relative;
+  padding-left: var(--space-5);
+}
+
+.contactBody li::before {
+  content: "—";
+  position: absolute;
+  left: 0;
+  color: var(--color-editor-red);
+}
+
+.contactMethods {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-8);
+}
+
+.contactMethod {
+  background-color: var(--color-charcoal);
+  padding: var(--space-7);
+  border-radius: 2px;
+}
+
+.methodLabel {
+  color: var(--color-editor-red);
+  font-family: var(--font-geist);
+  font-size: var(--text-sm);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: var(--space-4);
+}
+
+.methodValue {
+  font-family: var(--font-instrument-serif);
+  font-size: var(--text-3xl);
+  color: var(--color-paper);
+  margin-bottom: var(--space-6);
+  word-break: break-all;
+}
+
+.methodBody {
+  font-family: var(--font-geist);
+  font-size: var(--text-base);
+  color: var(--color-ash);
+  margin-bottom: var(--space-6);
+}
+
+.primaryAction {
+  display: inline-block;
+  background-color: var(--color-paper);
+  color: var(--color-ink);
+  padding: var(--space-3) var(--space-6);
+  text-decoration: none;
+  font-family: var(--font-geist);
+  font-weight: 500;
+  border-radius: 2px;
+  transition: transform 0.2s ease;
+}
+
+.primaryAction:hover {
+  transform: translateY(-2px);
+}
+
+.secondaryAction {
+  display: inline-block;
+  color: var(--color-paper);
+  text-decoration: underline;
+  text-decoration-color: var(--color-editor-red);
+  text-underline-offset: 4px;
+  font-family: var(--font-geist);
+  transition: color 0.2s ease;
+}
+
+.secondaryAction:hover {
+  color: var(--color-editor-red);
+}
+
+.closingLine {
+  font-family: var(--font-instrument-serif);
+  font-size: var(--text-5xl);
+  color: var(--color-paper);
+  text-align: center;
+  margin-top: var(--space-9);
+  padding-top: var(--space-9);
+  border-top: 1px solid var(--color-charcoal);
+  line-height: 1.2;
+}

@@ -1,0 +1,304 @@
+:root {
+    /* ========================================
+     BASE SPACING SCALE
+
+     Use this scale for local spacing:
+     gaps, padding, margins, and element rhythm.
+     ======================================== */
+
+    --space-0: 0;
+    --space-1: 0.25rem;
+    /* 4px */
+    --space-2: 0.5rem;
+    /* 8px */
+    --space-3: 0.75rem;
+    /* 12px */
+    --space-4: 1rem;
+    /* 16px */
+    --space-5: 1.5rem;
+    /* 24px */
+    --space-6: 2rem;
+    /* 32px */
+    --space-7: 3rem;
+    /* 48px */
+    --space-8: 4rem;
+    /* 64px */
+    --space-9: 6rem;
+    /* 96px */
+    --space-10: 8rem;
+    /* 128px */
+    --space-11: 12rem;
+    /* 192px */
+    --space-12: 16rem;
+    /* 256px */
+
+
+    /* ========================================
+     FLUID PAGE GUTTERS
+
+     The portfolio should feel generous on large
+     screens without becoming cramped on mobile.
+     ======================================== */
+
+    --gutter-page:
+        clamp(1.25rem, 0.5rem + 3vw, 4.5rem);
+
+    --gutter-page-wide:
+        clamp(1.25rem, 0.25rem + 4vw, 6rem);
+
+
+    /* ========================================
+     COMPOSITION WIDTHS
+
+     Composition width and reading width are
+     deliberately different concepts.
+
+     Reading widths remain defined in
+     typography.css.
+     ======================================== */
+
+    --width-composition: 93.75rem;
+    /* 1500px */
+    --width-composition-narrow: 80rem;
+    /* 1280px */
+    --width-content: 70rem;
+    /* 1120px */
+
+
+    /* ========================================
+     GRID
+
+     The 12-column grid is the underlying
+     discipline, not a visible template.
+     ======================================== */
+
+    --grid-columns: 12;
+
+    --grid-gap:
+        clamp(1rem, 0.65rem + 1.4vw, 2rem);
+
+
+    /* ========================================
+     FLUID SECTION SPACING
+
+     Use these for major vertical composition.
+
+     Do not make every section equally spacious.
+     Choose according to narrative rhythm.
+     ======================================== */
+
+    --section-space-sm:
+        clamp(4rem, 3rem + 4vw, 7rem);
+
+    --section-space-md:
+        clamp(6rem, 4rem + 7vw, 11rem);
+
+    --section-space-lg:
+        clamp(8rem, 4rem + 12vw, 16rem);
+
+    --section-space-xl:
+        clamp(10rem, 4rem + 18vw, 22rem);
+
+
+    /* ========================================
+     CONTENT RHYTHM
+
+     For relationships within a section.
+     ======================================== */
+
+    --flow-space-xs:
+        clamp(0.75rem, 0.65rem + 0.4vw, 1rem);
+
+    --flow-space-sm:
+        clamp(1rem, 0.8rem + 0.8vw, 1.5rem);
+
+    --flow-space-md:
+        clamp(1.5rem, 1rem + 2vw, 3rem);
+
+    --flow-space-lg:
+        clamp(2.5rem, 1.5rem + 4vw, 6rem);
+
+    --flow-space-xl:
+        clamp(4rem, 2rem + 8vw, 10rem);
+
+
+    /* ========================================
+     IMAGE SPACING
+
+     Supports image-led project storytelling.
+     ======================================== */
+
+    --image-gap-sm:
+        clamp(0.75rem, 0.5rem + 1vw, 1.5rem);
+
+    --image-gap-md:
+        clamp(1rem, 0.5rem + 2vw, 3rem);
+
+    --image-gap-lg:
+        clamp(2rem, 1rem + 4vw, 6rem);
+
+
+    /* ========================================
+     EDGE AND OVERFLOW SPACE
+
+     Allows selected typography and imagery
+     to interrupt normal content alignment.
+     ======================================== */
+
+    --edge-offset-sm:
+        clamp(1rem, 0.5rem + 2vw, 3rem);
+
+    --edge-offset-md:
+        clamp(2rem, 1rem + 4vw, 6rem);
+
+    --edge-offset-lg:
+        clamp(3rem, 1rem + 8vw, 10rem);
+
+
+    /* ========================================
+     NAVIGATION AND PAGE FRAME
+     ======================================== */
+
+    --nav-height: 4.5rem;
+
+    --page-top-offset:
+        calc(var(--nav-height) + var(--space-6));
+
+
+    /* ========================================
+     MINIMUM INTERACTIVE SIZE
+     ======================================== */
+
+    --size-interactive-min: 2.75rem;
+}
+
+
+/* ========================================
+   COMPOSITION CONTAINERS
+   ======================================== */
+
+.container {
+    width: min(calc(100% - (var(--gutter-page) * 2)),
+            var(--width-composition));
+
+    margin-inline: auto;
+}
+
+.container-wide {
+    width: min(calc(100% - (var(--gutter-page-wide) * 2)),
+            var(--width-composition));
+
+    margin-inline: auto;
+}
+
+.container-narrow {
+    width: min(calc(100% - (var(--gutter-page) * 2)),
+            var(--width-composition-narrow));
+
+    margin-inline: auto;
+}
+
+.container-content {
+    width: min(calc(100% - (var(--gutter-page) * 2)),
+            var(--width-content));
+
+    margin-inline: auto;
+}
+
+
+/* ========================================
+   12-COLUMN EDITORIAL GRID
+   ======================================== */
+
+.grid-editorial {
+    display: grid;
+    grid-template-columns:
+        repeat(var(--grid-columns), minmax(0, 1fr));
+    gap: var(--grid-gap);
+}
+
+
+/* ========================================
+   SECTION SPACING UTILITIES
+
+   Use intentionally.
+   Do not alternate these mechanically.
+   ======================================== */
+
+.section-sm {
+    padding-block: var(--section-space-sm);
+}
+
+.section-md {
+    padding-block: var(--section-space-md);
+}
+
+.section-lg {
+    padding-block: var(--section-space-lg);
+}
+
+.section-xl {
+    padding-block: var(--section-space-xl);
+}
+
+
+/* ========================================
+   FLOW UTILITIES
+
+   Apply to wrappers whose direct children
+   need consistent vertical rhythm.
+   ======================================== */
+
+.flow-xs>*+* {
+    margin-top: var(--flow-space-xs);
+}
+
+.flow-sm>*+* {
+    margin-top: var(--flow-space-sm);
+}
+
+.flow-md>*+* {
+    margin-top: var(--flow-space-md);
+}
+
+.flow-lg>*+* {
+    margin-top: var(--flow-space-lg);
+}
+
+.flow-xl>*+* {
+    margin-top: var(--flow-space-xl);
+}
+
+
+/* ========================================
+   FULL-BLEED MEDIA
+
+   Allows selected visual moments to escape
+   the normal content container.
+   ======================================== */
+
+.full-bleed {
+    width: 100vw;
+    margin-left: calc(50% - 50vw);
+}
+
+
+/* ========================================
+   MOBILE SAFEGUARDS
+   ======================================== */
+
+@media (max-width: 47.99rem) {
+    :root {
+        --nav-height: 4rem;
+        --grid-columns: 4;
+        --grid-gap: 1rem;
+
+        --page-top-offset:
+            calc(var(--nav-height) + var(--space-5));
+    }
+
+    .grid-editorial {
+        grid-template-columns:
+            repeat(var(--grid-columns), minmax(0, 1fr));
+    }
+}

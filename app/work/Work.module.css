@@ -1,0 +1,217 @@
+.pageIntro {
+  padding: var(--space-9) 0 var(--space-7);
+  border-bottom: 1px solid var(--color-charcoal);
+  margin-bottom: var(--space-8);
+}
+
+.introEyebrow {
+  color: var(--color-ash);
+  margin-bottom: var(--space-5);
+  font-family: var(--font-geist);
+  font-size: var(--text-sm);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.introHeading {
+  font-family: var(--font-instrument-serif);
+  font-size: var(--text-5xl);
+  line-height: 1.1;
+  margin-bottom: var(--space-6);
+  color: var(--color-paper);
+}
+
+.introBody {
+  max-width: var(--width-content);
+  color: var(--color-paper);
+}
+
+.introBody p {
+  margin-bottom: var(--space-4);
+  font-size: var(--text-lg);
+  line-height: var(--line-height-relaxed);
+}
+
+.workCategory {
+  margin-bottom: var(--space-11);
+}
+
+.categoryHeader {
+  margin-bottom: var(--space-7);
+  border-left: 2px solid var(--color-editor-red);
+  padding-left: var(--space-5);
+}
+
+.categoryTitle {
+  font-family: var(--font-geist);
+  font-size: var(--text-lg);
+  color: var(--color-editor-red);
+  margin-bottom: var(--space-2);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.categoryIntro {
+  font-family: var(--font-geist);
+  font-size: var(--text-base);
+  color: var(--color-ash);
+  max-width: var(--width-content);
+}
+
+.projectList {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-10);
+}
+
+.projectItem {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-5);
+  align-items: start;
+}
+
+@media (min-width: 768px) {
+  .projectItem {
+    grid-template-columns: 1fr 1.2fr;
+    gap: var(--space-7);
+  }
+  
+  /* Variations in grid layouts to avoid a uniform card grid */
+  .projectItem.variantA {
+    grid-template-columns: 1fr 1fr;
+  }
+  
+  .projectItem.variantA .projectContent {
+    order: -1;
+  }
+  
+  .projectItem.variantB {
+    grid-template-columns: 1.2fr 1fr;
+  }
+  
+  .projectItem.variantC {
+    grid-template-columns: 1fr;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+}
+
+.projectImageWrapper {
+  position: relative;
+  overflow: hidden;
+  background-color: var(--color-charcoal);
+  width: 100%;
+}
+
+.projectImageWrapper.ratioWide {
+  aspect-ratio: 16/9;
+}
+
+.projectImageWrapper.ratioSquare {
+  aspect-ratio: 1/1;
+}
+
+.projectImageWrapper.ratioPortrait {
+  aspect-ratio: 3/4;
+}
+
+.projectImageWrapper.ratioStandard {
+  aspect-ratio: 4/3;
+}
+
+.projectType {
+  font-family: var(--font-geist);
+  font-size: var(--text-xs);
+  color: var(--color-ash);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: var(--space-3);
+}
+
+.projectTitle {
+  font-family: var(--font-instrument-serif);
+  font-size: var(--text-4xl);
+  color: var(--color-paper);
+  margin-bottom: var(--space-3);
+  line-height: 1.1;
+}
+
+.projectLine {
+  font-family: var(--font-geist);
+  font-size: var(--text-lg);
+  color: var(--color-paper);
+  margin-bottom: var(--space-4);
+}
+
+.projectDescription {
+  font-family: var(--font-geist);
+  font-size: var(--text-base);
+  color: var(--color-ash);
+  margin-bottom: var(--space-5);
+  line-height: var(--line-height-relaxed);
+  max-width: var(--width-content);
+}
+
+.projectExcerpt {
+  font-family: var(--font-instrument-serif);
+  font-size: var(--text-2xl);
+  font-style: italic;
+  color: var(--color-ash);
+  border-left: 2px solid var(--color-editor-red);
+  padding-left: var(--space-4);
+  margin-bottom: var(--space-6);
+}
+
+.primaryAction {
+  display: inline-block;
+  color: var(--color-paper);
+  text-decoration: underline;
+  text-decoration-color: var(--color-editor-red);
+  text-underline-offset: 4px;
+  font-family: var(--font-geist);
+  font-size: var(--text-base);
+  transition: color 0.2s ease;
+}
+
+.primaryAction:hover {
+  color: var(--color-editor-red);
+}
+
+.ctaSection {
+  padding: var(--space-9) 0;
+  border-top: 1px solid var(--color-charcoal);
+  margin-top: var(--space-9);
+  text-align: center;
+}
+
+.ctaHeading {
+  font-family: var(--font-instrument-serif);
+  font-size: var(--text-4xl);
+  margin-bottom: var(--space-4);
+  color: var(--color-paper);
+}
+
+.ctaBody {
+  max-width: var(--width-content);
+  margin: 0 auto var(--space-6);
+  font-size: var(--text-lg);
+  color: var(--color-ash);
+  line-height: var(--line-height-relaxed);
+}
+
+.ctaPrimary {
+  display: inline-block;
+  background-color: var(--color-paper);
+  color: var(--color-ink);
+  padding: var(--space-3) var(--space-6);
+  text-decoration: none;
+  font-family: var(--font-geist);
+  font-weight: 500;
+  border-radius: 2px;
+  transition: transform 0.2s ease;
+}
+
+.ctaPrimary:hover {
+  transform: translateY(-2px);
+}

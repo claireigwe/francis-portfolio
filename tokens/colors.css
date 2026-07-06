@@ -1,0 +1,172 @@
+:root {
+    /* ========================================
+     CORE PALETTE
+     ======================================== */
+
+    --color-ink: #11100f;
+    --color-paper: #f1ede5;
+    --color-ash: #a8a29a;
+    --color-editor-red: #d84a3a;
+    --color-charcoal: #1b1917;
+    --color-warm-paper: #e7e0d5;
+
+
+    /* ========================================
+     SUPPORTING PALETTE
+     ======================================== */
+
+    --color-ink-soft: #171513;
+    --color-paper-muted: #d8d2c8;
+    --color-ash-dark: #746f68;
+
+    --color-red-hover: #e25a49;
+    --color-red-muted: #8f342a;
+
+
+    /* ========================================
+     SEMANTIC TOKENS
+     Default dark-first site theme
+     ======================================== */
+
+    --color-background: var(--color-ink);
+    --color-background-subtle: var(--color-ink-soft);
+    --color-surface: var(--color-charcoal);
+
+    --color-text-primary: var(--color-paper);
+    --color-text-secondary: var(--color-ash);
+    --color-text-muted: var(--color-ash-dark);
+
+    --color-accent: var(--color-editor-red);
+    --color-accent-hover: var(--color-red-hover);
+
+    --color-border: rgba(241, 237, 229, 0.16);
+    --color-border-subtle: rgba(241, 237, 229, 0.08);
+    --color-border-strong: rgba(241, 237, 229, 0.32);
+
+    --color-selection-background: var(--color-editor-red);
+    --color-selection-text: var(--color-paper);
+
+
+    /* ========================================
+     LIGHT EDITORIAL SURFACE
+     Use intentionally within the dark-first site.
+     This is not a separate light mode.
+     ======================================== */
+
+    --color-light-background: var(--color-warm-paper);
+    --color-light-surface: var(--color-paper);
+
+    --color-light-text-primary: var(--color-ink);
+    --color-light-text-secondary: #5f5a54;
+    --color-light-text-muted: #817a72;
+
+    --color-light-border: rgba(17, 16, 15, 0.16);
+    --color-light-border-subtle: rgba(17, 16, 15, 0.08);
+
+
+    /* ========================================
+     PROJECT ATMOSPHERES
+     Use only within the relevant project.
+     The portfolio core palette remains dominant.
+     ======================================== */
+
+    /* Insatiable Eats — warm, sensory, appetising */
+    --color-project-insatiable: #a94732;
+    --color-project-insatiable-soft: #d6a06f;
+    --color-project-insatiable-deep: #5f241d;
+
+    /* The Power of Blue — deep, material indigo */
+    --color-project-indigo: #243b6b;
+    --color-project-indigo-soft: #7184ad;
+    --color-project-indigo-deep: #152343;
+
+    /* Gemba Walk — industrial and grounded */
+    --color-project-gemba: #77746a;
+    --color-project-gemba-soft: #aaa69a;
+    --color-project-gemba-deep: #3d3b36;
+
+    /* Online Shop — uses the core editorial red */
+    --color-project-online-shop: var(--color-editor-red);
+    --color-project-online-shop-soft: #e17c6f;
+    --color-project-online-shop-deep: #7c2b23;
+
+    /* Autovest — restrained automotive atmosphere */
+    --color-project-autovest: #59636b;
+    --color-project-autovest-soft: #919ba1;
+    --color-project-autovest-deep: #30383d;
+
+
+    /* ========================================
+     FUNCTIONAL STATES
+     ======================================== */
+
+    --color-focus: var(--color-editor-red);
+
+    --color-overlay-light: rgba(241, 237, 229, 0.08);
+    --color-overlay-dark: rgba(17, 16, 15, 0.72);
+    --color-image-overlay: rgba(17, 16, 15, 0.32);
+}
+
+
+/* ========================================
+   SELECTION
+   ======================================== */
+
+::selection {
+    background: var(--color-selection-background);
+    color: var(--color-selection-text);
+}
+
+
+/* ========================================
+   LIGHT EDITORIAL CONTEXT
+   Apply only to intentionally light sections.
+   ======================================== */
+
+[data-surface="light"] {
+    --color-background: var(--color-light-background);
+    --color-surface: var(--color-light-surface);
+
+    --color-text-primary: var(--color-light-text-primary);
+    --color-text-secondary: var(--color-light-text-secondary);
+    --color-text-muted: var(--color-light-text-muted);
+
+    --color-border: var(--color-light-border);
+    --color-border-subtle: var(--color-light-border-subtle);
+}
+
+
+/* ========================================
+   PROJECT CONTEXTS
+   These expose one temporary project accent.
+   ======================================== */
+
+[data-project="insatiable-eats"] {
+    --color-project-accent: var(--color-project-insatiable);
+    --color-project-accent-soft: var(--color-project-insatiable-soft);
+    --color-project-accent-deep: var(--color-project-insatiable-deep);
+}
+
+[data-project="power-of-blue"] {
+    --color-project-accent: var(--color-project-indigo);
+    --color-project-accent-soft: var(--color-project-indigo-soft);
+    --color-project-accent-deep: var(--color-project-indigo-deep);
+}
+
+[data-project="gemba-walk"] {
+    --color-project-accent: var(--color-project-gemba);
+    --color-project-accent-soft: var(--color-project-gemba-soft);
+    --color-project-accent-deep: var(--color-project-gemba-deep);
+}
+
+[data-project="online-shop"] {
+    --color-project-accent: var(--color-project-online-shop);
+    --color-project-accent-soft: var(--color-project-online-shop-soft);
+    --color-project-accent-deep: var(--color-project-online-shop-deep);
+}
+
+[data-project="autovest"] {
+    --color-project-accent: var(--color-project-autovest);
+    --color-project-accent-soft: var(--color-project-autovest-soft);
+    --color-project-accent-deep: var(--color-project-autovest-deep);
+}
