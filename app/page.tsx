@@ -11,18 +11,35 @@ export default function Home() {
   return (
     <>
       <section className={`${styles.hero} container`}>
-        <div className={styles.heroEyebrow}>Francis Igwe — Copywriter & Copyeditor</div>
-        <h1 className={styles.heroHeadline}>
-          <span>I find the words.</span>
-          <span>Then I make them work.</span>
-        </h1>
-        <div className={styles.heroIntro}>
-          <p>Some words need to sell. Some need to explain. Others just need someone to look at them and say, “We can do better.”</p>
-          <p>I write, shape, and sharpen copy until it says what it needs to say — clearly, engagingly, and without wasting anyone’s time.</p>
-        </div>
-        <div className={styles.heroActions}>
-          <Link href="/work" className={styles.primaryAction}>See my work</Link>
-          <a href="mailto:francisigwe.biz@gmail.com" className={styles.secondaryAction}>Let’s talk</a>
+        <div className={styles.heroEditorialGrid}>
+          <div className={styles.heroTextColumn}>
+            <div className={styles.heroEyebrow}>Francis Igwe — Copywriter & Copyeditor</div>
+            <h1 className={styles.heroHeadline}>
+              <span>I find the words.</span>
+              <span>Then I make them work.</span>
+            </h1>
+            <div className={styles.heroIntro}>
+              <p>Some words need to sell. Some need to explain. Others just need someone to look at them and say, “We can do better.”</p>
+              <p>I write, shape, and sharpen copy until it says what it needs to say — clearly, engagingly, and without wasting anyone’s time.</p>
+            </div>
+            <div className={styles.heroActions}>
+              <Link href="/work" className={styles.primaryAction}>See my work</Link>
+              <a href="mailto:francisigwe.biz@gmail.com" className={styles.secondaryAction}>Let’s talk</a>
+            </div>
+          </div>
+          
+          <div className={styles.heroImageColumn}>
+            <div className={styles.homePortraitWrapper}>
+              <Image 
+                src="/images/francis_1.jpeg"
+                alt="Francis Igwe, Copywriter & Copyeditor"
+                fill
+                className={styles.homePortrait}
+                sizes="(max-width: 768px) 100vw, 400px"
+                priority
+              />
+            </div>
+          </div>
         </div>
       </section>
 

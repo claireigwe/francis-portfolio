@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import styles from "./About.module.css";
 
 export const metadata = {
@@ -11,15 +12,30 @@ export default function AboutPage() {
     <main className={`${styles.aboutPage} container`}>
       <header className={styles.aboutHeader}>
         <div className={styles.aboutEyebrow}>About me</div>
-        <h1 className={styles.aboutTitle}>
-          I started by writing the words.<br />
-          Then I spent years finding out why some work better than others.
-        </h1>
-        <div className={styles.aboutIntro}>
-          <p>I’m Francis Igwe, a Copywriter & Copyeditor.</p>
-          <p>I’ve written sales copy, articles, scripts, pitches, website content, and other things that began with someone needing the right words for something.</p>
-          <p>But writing is only one side of my work.</p>
-          <p>I’ve also spent years reviewing what other people write — improving structure and flow, catching what weakens a piece, training writers, and helping content meet the standard it needs to meet.</p>
+        <div className={styles.aboutHeaderGrid}>
+          <div className={styles.aboutHeaderText}>
+            <h1 className={styles.aboutTitle}>
+              I started by writing the words.<br />
+              Then I spent years finding out why some work better than others.
+            </h1>
+            <div className={styles.aboutIntro}>
+              <p>I’m Francis Igwe, a Copywriter & Copyeditor.</p>
+              <p>I’ve written sales copy, articles, scripts, pitches, website content, and other things that began with someone needing the right words for something.</p>
+              <p>But writing is only one side of my work.</p>
+              <p>I’ve also spent years reviewing what other people write — improving structure and flow, catching what weakens a piece, training writers, and helping content meet the standard it needs to meet.</p>
+            </div>
+          </div>
+          <div className={styles.aboutHeaderImage}>
+            <div className={styles.aboutPortraitWrapper}>
+              <Image 
+                src="/images/francis_2.jpeg"
+                alt="Francis Igwe"
+                fill
+                className={styles.aboutPortrait}
+                sizes="(max-width: 768px) 100vw, 600px"
+              />
+            </div>
+          </div>
         </div>
       </header>
 

@@ -48,16 +48,15 @@
   text-underline-offset: 4px;
   font-family: var(--font-geist);
   font-size: var(--text-base);
-  transition: color 0.2s ease;
+  transition: opacity 0.2s ease;
 }
 
 .primaryAction:hover {
-  color: var(--color-editor-red);
+  opacity: 0.8;
 }
 
 .secondaryAction {
   color: var(--color-ash);
-  text-decoration: none;
   font-family: var(--font-geist);
   font-size: var(--text-base);
   transition: color 0.2s ease;
@@ -65,6 +64,49 @@
 
 .secondaryAction:hover {
   color: var(--color-paper);
+}
+
+.heroEditorialGrid {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-7);
+}
+
+.heroTextColumn {
+  flex: 1;
+  max-width: 900px;
+}
+
+.heroImageColumn {
+  flex: 0 0 auto;
+  width: 100%;
+  max-width: 260px;
+}
+
+.homePortraitWrapper {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 3/4;
+  overflow: hidden;
+  border-radius: 2px;
+}
+
+.homePortrait {
+  object-fit: cover;
+}
+
+@media (min-width: 768px) {
+  .heroEditorialGrid {
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: var(--space-8);
+  }
+  
+  .heroImageColumn {
+    display: flex;
+    justify-content: flex-end;
+  }
 }
 
 .selectedWorkSection {

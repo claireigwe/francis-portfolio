@@ -38,6 +38,49 @@
   margin-bottom: var(--space-4);
 }
 
+.aboutHeaderGrid {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-7);
+}
+
+.aboutHeaderText {
+  flex: 1;
+  max-width: 900px;
+}
+
+.aboutHeaderImage {
+  flex: 0 0 auto;
+  width: 100%;
+  max-width: 360px;
+}
+
+.aboutPortraitWrapper {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4/5;
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.aboutPortrait {
+  object-fit: cover;
+}
+
+@media (min-width: 768px) {
+  .aboutHeaderGrid {
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: var(--space-8);
+  }
+  
+  .aboutHeaderImage {
+    display: flex;
+    justify-content: flex-end;
+  }
+}
+
 .sectionLabel {
   color: var(--color-editor-red);
   font-family: var(--font-geist);
